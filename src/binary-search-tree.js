@@ -42,14 +42,57 @@ class BinarySearchTree {
     }
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(data) {
+
+    if (!this.treetop) {
+      return false;
+    }
+
+    let nodeTree = this.treetop;
+
+
+    while (nodeTree) {
+      if (nodeTree.data === data) {
+        return true;
+      }
+
+      if (nodeTree.data > data) {
+        nodeTree = nodeTree.left;
+      } else if (nodeTree.data < data) {
+        nodeTree = nodeTree.right;
+      } else {
+        return true
+      }
+
+
+    }
+
+    return false;
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find(data) {
+    if (!this.treetop) {
+      return null;
+    }
+
+    let nodeTree = this.treetop;
+
+
+    while (nodeTree) {
+      if (nodeTree.data === data) {
+        return nodeTree;
+      }
+
+      if (nodeTree.data > data) {
+        nodeTree = nodeTree.left;
+      } else if (nodeTree.data < data) {
+        nodeTree = nodeTree.right;
+      }
+
+
+    }
+
+    return null;
   }
 
   remove(/* data */) {
